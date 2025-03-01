@@ -21,7 +21,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
     return <MuiAlert elevation={5} ref={ref} variant="filled" {...props} />;
 });
 
-export default function TaskForm({ configs, data, callbacks }: TaskFormInterface) {
+export default function TaskForm({ configs, data, callbacks }: any) {
 
     const initialFormState = {
         Title: data?.taskData.Title || null,
@@ -51,12 +51,12 @@ export default function TaskForm({ configs, data, callbacks }: TaskFormInterface
             // Convert the date value to ISO string
             const dateValue = value ? new Date(value).toISOString() : null;
 
-            setFormData((prevData) => ({
+            setFormData((prevData:any) => ({
                 ...prevData,
                 [name]: dateValue,
             }));
         } else {
-            setFormData((prevData) => ({
+            setFormData((prevData:any) => ({
                 ...prevData,
                 [name]: value && value,
             }));
